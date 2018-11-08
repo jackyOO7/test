@@ -42,7 +42,7 @@ ax.yaxis.set_major_locator(mdates.HourLocator(interval=2))
 # Loop through the places and the colors:
 for idx,(key, value) in enumerate(places.items()):
   # Call the sunrisetimes function:
-  dates,sunrise, sunset=sunrisetimes(value)
+  dates,sunrise, sunset=sunrisetimes(value,year)
 
   # Plot the returned data as line plots:
   ax.plot(dates, sunrise, label=key, color='C%d'%(idx%10))
