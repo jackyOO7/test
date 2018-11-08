@@ -35,14 +35,9 @@ places={"Greenwich": (0, 0, 51, 29), "Zurich": (8, 33, 47, 22, 408)}
 
 # Create a nice plot for both series:
 ax=plt.subplot(111)
-
-
 ax.xaxis.set_major_formatter(mdates.DateFormatter('%d/%m'))
 ax.yaxis.set_major_formatter(mdates.DateFormatter('%H:%M'))
 ax.yaxis.set_major_locator(mdates.HourLocator(interval=2))
-
-# arbitrary offset to get useful date base for time display on y-Axis
-base=75e3
 
 # Loop through the places and the colors:
 for idx,(key, value) in enumerate(places.items()):
@@ -62,7 +57,7 @@ plt.xticks(np.linspace(dates[0],dates[-1],10))
 plt.xlabel('date')
 
 # # activate if y axis should range from 0h to 24h
-# plt.ylim([base,base+1])
+# plt.ylim([dates[0]+0.5,dates[1]+0.5])
 plt.ylabel('time')
 
 plt.legend()
